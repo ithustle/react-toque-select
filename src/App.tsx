@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, ChakraProvider } from '@chakra-ui/react'
+import { useState } from 'react';
+import ReactToqueSelect from './react-toque-select';
+
+const data = [
+	'Bebidas',
+	'Hamburguer',
+	'Meet',
+	'iPhone',
+	'Android',
+	'MiBox'
+]
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	return (
+		<ChakraProvider>
+			<Box
+				width={'xl'}
+				height={'xl'}
+				bg={'#666'}
+				p={'10'}
+			>
+				<ReactToqueSelect 
+					options={data}
+					isMulti
+					//onSelectOption={(value, index) => console.log(value, index)}
+				/>
+			</Box>
+		</ChakraProvider>
+	);
 }
 
 export default App;
